@@ -1,2 +1,406 @@
-# Dr-Yian-Goh-invest-vehicles
-Understanding Different Investment Vehicles
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Comparison | Bonds, ETFs & Unit Trusts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: #333;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #1a3a5f 0%, #2c5282 100%);
+            color: white;
+            padding: 25px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .header-content h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+        
+        .copyright {
+            font-size: 1rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+        
+        .intro {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            border-left: 5px solid #2c5282;
+        }
+        
+        .intro h2 {
+            color: #2c5282;
+            margin-bottom: 15px;
+        }
+        
+        .intro p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(90deg, #2c5282 0%, #1a3a5f 100%);
+            color: white;
+            padding: 18px 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .comparison-table th:first-child {
+            width: 22%;
+        }
+        
+        .comparison-table td {
+            padding: 16px 15px;
+            border: 1px solid #e0e7ff;
+            line-height: 1.6;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .feature-header {
+            background-color: #e3f2ff !important;
+            color: #1a3a5f;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+        
+        .bonds { 
+            color: #1a5276; 
+            position: relative;
+        }
+        
+        .etfs { 
+            color: #27ae60; 
+            position: relative;
+        }
+        
+        .unit-trusts { 
+            color: #8e44ad; 
+            position: relative;
+        }
+        
+        .bonds::before {
+            content: "📜";
+            margin-right: 8px;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+        
+        .etfs::before {
+            content: "📊";
+            margin-right: 8px;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+        
+        .unit-trusts::before {
+            content: "🏦";
+            margin-right: 8px;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+        
+        .highlight-green { 
+            background-color: #e8f5e9; 
+            border-left: 3px solid #4CAF50;
+        }
+        
+        .highlight-red { 
+            background-color: #ffebee; 
+            border-left: 3px solid #F44336;
+        }
+        
+        .highlight-blue { 
+            background-color: #e3f2fd; 
+            border-left: 3px solid #2196F3;
+        }
+        
+        .key-points {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin: 40px 0;
+            border: 1px solid #e0e7ff;
+        }
+        
+        .key-points h2 {
+            color: #2c5282;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+        
+        .key-points ul {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .key-points li {
+            padding: 15px 20px 15px 60px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        
+        .key-points li:hover {
+            transform: translateX(10px);
+        }
+        
+        .key-points li::before {
+            content: "•";
+            position: absolute;
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #2c5282;
+        }
+        
+        .investment-type {
+            font-weight: 700;
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+        
+        .bonds-type {
+            background-color: #d4e6f1;
+            color: #1a5276;
+        }
+        
+        .etfs-type {
+            background-color: #d5f5e3;
+            color: #27ae60;
+        }
+        
+        .unit-trusts-type {
+            background-color: #e8daef;
+            color: #8e44ad;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #e0e7ff;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .intro {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Investment Comparison Guide</h1>
+                <h2>Created by Dr Yian Goh QY</h2>
+                <div class="copyright">
+                    Copyrighted @ 2025 @ www.katherinegoh.com
+                </div>
+            </div>
+        </header>
+        
+        <div class="intro">
+            <h2>Understanding Different Investment Vehicles</h2>
+            <p>This comprehensive guide compares three fundamental investment types: Bonds, ETFs (Exchange-Traded Funds), and Unit Trusts. Each has distinct characteristics, risk profiles, and suitability for different investor types. Use this comparison to make informed decisions based on your financial goals and risk tolerance.</p>
+        </div>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>FEATURE</th>
+                <th>BONDS</th>
+                <th>ETFs</th>
+                <th>UNIT TRUSTS</th>
+            </tr>
+            <tr>
+                <td class="feature-header">Structure</td>
+                <td class="bonds">Debt instrument (IOU from issuer)</td>
+                <td class="etfs">Exchange-traded basket of assets</td>
+                <td class="unit-trusts">Pooled fund with unit holders</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Ownership Type</td>
+                <td class="bonds">Creditor (Lender)</td>
+                <td class="etfs">Shareholder of ETF</td>
+                <td class="unit-trusts">Unit Holder</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Trading</td>
+                <td class="bonds highlight-red">OTC/Brokers<br>▶ Limited liquidity</td>
+                <td class="etfs highlight-green">Stock exchanges<br>✔ Intraday trading</td>
+                <td class="unit-trusts highlight-red">Fund company only<br>◼ Daily NAV pricing</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Pricing</td>
+                <td class="bonds">Interest rate sensitive + Face value</td>
+                <td class="etfs">Market price + NAV</td>
+                <td class="unit-trusts">End-of-day NAV only</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Fees</td>
+                <td class="bonds">• Broker commissions<br>• Bid-ask spreads</td>
+                <td class="etfs">• Low expense ratios (0.03-0.50%)<br>• Trading commissions</td>
+                <td class="unit-trusts highlight-red">• Higher MERs (0.50-2.0%)<br>• Sales loads</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Management</td>
+                <td class="bonds highlight-blue">Passive<br>(Fixed terms)</td>
+                <td class="etfs highlight-blue">Mostly passive<br>(Index-tracking)</td>
+                <td class="unit-trusts">Mostly active<br>(Fund manager decisions)</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Transparency</td>
+                <td class="bonds">Issuer details public</td>
+                <td class="etfs highlight-green">Daily holdings disclosure</td>
+                <td class="unit-trusts">Quarterly/semi-annual reports</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Key Risks</td>
+                <td class="bonds">Default • Interest rate • Inflation</td>
+                <td class="etfs">Market • Tracking error • Liquidity</td>
+                <td class="unit-trusts">Manager risk • Fees • Underperformance</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Income</td>
+                <td class="bonds">Fixed coupons</td>
+                <td class="etfs">Variable dividends</td>
+                <td class="unit-trusts">Variable distributions</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Min. Investment</td>
+                <td class="bonds highlight-red">High ($1k-$5k/bond)</td>
+                <td class="etfs highlight-green">Low (1 share ≈ $50-$500)</td>
+                <td class="unit-trusts">Low ($100-$1,000)</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Tax Efficiency</td>
+                <td class="bonds">Interest taxable</td>
+                <td class="etfs highlight-green">Most efficient<br>(In-kind creations)</td>
+                <td class="unit-trusts">Capital gains distributions taxable</td>
+            </tr>
+            <tr>
+                <td class="feature-header">Best For</td>
+                <td class="bonds">Capital preservation • Fixed income</td>
+                <td class="etfs">Cost-sensitive • Traders • DIY investors</td>
+                <td class="unit-trusts">Hands-off • Active mgmt believers</td>
+            </tr>
+        </table>
+        
+        <div class="key-points">
+            <h2>Key Differentiators</h2>
+            <ul>
+                <li><span class="investment-type etfs-type">ETFs</span> combine stock-like trading flexibility with the diversification benefits of mutual funds, making them ideal for cost-conscious investors</li>
+                <li><span class="investment-type bonds-type">Bonds</span> provide predictable income streams and capital preservation but typically require larger initial investments</li>
+                <li><span class="investment-type unit-trusts-type">Unit Trusts</span> offer professional active management at higher costs, suitable for investors who prefer a hands-off approach</li>
+                <li><span class="investment-type etfs-type">ETFs</span> have significant advantages in trading flexibility, cost efficiency, and tax treatment compared to other options</li>
+                <li>Each investment type serves different objectives: Bonds for stability, ETFs for efficient market exposure, and Unit Trusts for active management strategies</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>Investment Comparison Guide | Created by Dr Yian Goh QY</p>
+            <p>Copyrighted @ 2025 @ www.katherinegoh.com | For educational purposes only</p>
+        </footer>
+    </div>
+</body>
+</html>
